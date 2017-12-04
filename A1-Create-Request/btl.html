@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Request IT</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.5.1/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.5.1/css/froala_style.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="btl.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="requestIT.js"></script>
+</head>
+<body>
+	<div class="page-heading">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8">
+                    
+                </div>
+                <div class="pathway col-md-4 col-sm-4 hidden-xs text-right">
+                    <div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
+                    	<a href="#" rel="v:url" property="v:title"><i class="glyphicon glyphicon-home"></i> Home</a> > <span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="#">IT</a></span> > <span class="current">Request IT</span></div><!-- .breadcrumbs -->                </div>
+                            </div><!--/row-->
+        </div><!--/container-->
+    </div><!--/page-heading-->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<button class=" btn btn-danger"><i class="glyphicon glyphicon-plus"></i> THÊM YÊU CẦU</button><br><br>
+				<div class="request-task">
+				    <ul class="list-group">
+				      <li class="list-group-item"><big>Việc tôi yêu cầu</big><span onclick="myFunction()"><i class="fa fa-window-minimize" id="minimize" aria-hidden="true"></i></li></span></li>
+				      <div class="list-group" id="list-1">
+				        <li class="list-group-item"><i class="fa fa-tasks" aria-hidden="true"></i> All</li>
+				        <li class="list-group-item"><i class="fa fa-envelope-o" aria-hidden="true"></i> New</li>
+				        <li class="list-group-item"><i class="fa fa-ellipsis-h" aria-hidden="true"></i> In progress</li>
+				        <li class="list-group-item"><i class="fa fa-check-circle-o" aria-hidden="true"></i> Resolved</li>
+				        <li class="list-group-item"><i class="fa fa-calendar-times-o" aria-hidden="true"></i> Out Of Date</li>
+				      </div>
+				    </ul>
+  				</div>
+				<div class="related-task">
+					<ul class="list-group">
+						<li class="list-group-item"><big>Công việc liên quan</big><i class="fa fa-window-minimize" id="minimize" aria-hidden="true"></i></li>
+						<div class="list-group" id="list-2">
+							<li class="list-group-item"><i class="fa fa-tasks" aria-hidden="true"></i> All</li>
+							<li class="list-group-item"><i class="fa fa-envelope-o" aria-hidden="true"></i> New</li>
+							<li class="list-group-item"><i class="fa fa-ellipsis-h" aria-hidden="true"></i> In progress</li>
+							<li class="list-group-item"><i class="fa fa-check-circle-o" aria-hidden="true"></i> Resolved</li>
+							<li class="list-group-item"><i class="fa fa-calendar-times-o" aria-hidden="true"></i> Out Of Date</li>
+						</div>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<ul class="list-group">
+					<li class="list-group-item"><big>Thêm yêu cầu</big></li>
+					<li class="list-group-item">
+						<form>
+							<div class="form-group">
+	                            <label class="control-label" for="name">Tên công việc</label>
+	                            <input id="name" name="name" type="text" required placeholder="Tên công việc" class="form-control input-md">
+	                        </div>
+						
+						  	<div class="row">
+						  		<div class="col-md-6">
+								  	<div class="form-group">
+	                                    <label class="control-label" for="name">Mức độ ưu tiên</label>
+	                                    <select id="priority-level" name="level" class="form-control">
+	                                        <option value="Bình thường">Bình thường</option>
+	                                        <option value="Khẩn cấp ">Khẩn cấp</option>
+	                                    </select>
+	                                </div>
+								</div>
+								<div class="col-md-6">
+								  	<div class="form-group">
+								  		<label class="control-label" for="date">Ngày hết hạn</label>
+								  		<div class="input-group">
+		                            		
+									  		<input type="datetime-local" name="out-of-date" required class="form-control">
+									  		<span class="input-group-addon"><i class="glyphicon glyphicon-calendar glyphicon-nonescaped"></i></span>
+									  	</div>
+								  	</div>
+								</div>
+							</div>
+							<div class="row">
+						  		<div class="col-md-6">
+								  	<div class="form-group">
+	                                    <label class="control-label" for="name">Bộ phận IT</label>
+	                                    <select id="appointmentfor" name="level" class="form-control">
+	                                        <option value="Hanoi-IT">Hanoi - IT</option>
+	                                        <option value="Danang-IT">Danang - IT</option>
+	                                        <option value="HCMC-IT">HCM - IT</option>
+	                                    </select>
+	                                </div>
+								</div>
+								<div class="col-md-6">
+								  	<div class="form-group">
+			                            <label class="control-label" for="name">Người liên quan</label>
+			                            <input id="related-person" name="name" type="text" class="form-control input-md">
+	                        		</div>
+								</div>
+							</div>
+							<div class="form-group">
+			                    <label class="control-label" for="name">Nội dung</label>
+			                    <div id="editor">
+								    <div id='edit' rows="10">
+								     
+								    </div>
+								</div>
+			                    <!-- <div class="btn-toolbar">
+			                    	<div class="btn-group">
+										<button class="btn" data-original-title="font"><i class="glyphicon glyphicon-font"></i> Normal Text</button>
+									</div>
+									<div class="btn-group">
+									    <button class="btn" data-original-title="Bold - Ctrl+B"><b>Bold</b></button>
+									    <button class="btn" data-original-title="Italic - Ctrl+I"><i>Italic</i></button>
+									    <button class="btn" data-original-title="Underline - Crl+U"><u>Underline</u></button>
+									</div>
+									<div class="btn-group">
+										<button class="btn" data-original-title="Blockquote"><i class="fa fa-quote-right"></i></button>
+									</div>
+									<div class="btn-group">
+										<button class="btn" data-original-title="List"><i class="glyphicon glyphicon-list"></i></button>
+										<button class="btn" data-original-title="List"><i class="fa fa-list-ul"></i></button>
+										<button class="btn" data-original-title="Indent-left"><i class="glyphicon glyphicon-indent-left"></i></button>
+										<button class="btn" data-original-title="Indent-right"><i class="glyphicon glyphicon-indent-right"></i></button>
+									   
+									</div>
+								</div> -->
+								<!-- <br>
+								<div class="form-group">
+									<textarea type="text" name="your-request" rows="10" cols="113" class="form-control input-md"></textarea>
+								</div> -->
+			                </div>
+			                
+		                	<div class="file-upload">
+							  	<div class="file-select">
+							  		<div class="row">
+							  			<div class="col-md-10">
+									  		<div class="file-select-name" id="noFile">Choose files to upload</div>
+									  		<input type="file" name="chooseFile" id="chooseFile">
+									  	</div>
+									  	<div class="col-md-2">
+									    	<div class="file-select-button" id="fileName">Choose File</div>
+									    </div>
+							    	</div>
+							  </div>
+							</div>
+							<br>
+							<div class="submit">
+								
+									<button class="btn btn-primary"><i class="glyphicon glyphicon-send"></i> Gửi yêu cầu</button>
+									<button class="btn btn-default"><i class="glyphicon glyphicon-ban-circle"></i> Hủy bỏ</button></div>
+								
+							</div>
+						</form>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.5.1//js/froala_editor.pkgd.min.js"></script>
+</body>
+</html>
